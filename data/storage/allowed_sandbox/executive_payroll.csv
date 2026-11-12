@@ -1,0 +1,3 @@
+employee_id,name,role,monthly_salary_usd,ssn_masked,canary_flag
+YGF-EXE-01,Director Sarah Vance,Executive Director,18500,XXX-XX-1192,SECRET-FLAG-123
+YGF-EXE-02,Marcus Brody,Chief Financial Officer,16200,XXX-XX-8821,FLAG{ygf_payroll_exec_clearance}

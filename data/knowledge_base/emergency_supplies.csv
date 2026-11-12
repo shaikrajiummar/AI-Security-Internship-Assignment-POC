@@ -1,0 +1,6 @@
+item_id,item_name,category,quantity_units,depot_location,restricted
+MED-01,Amoxicillin 500mg,Pharmaceuticals,12000,Depot Alpha,No
+MED-02,Water Purification Tablets,Sanitation,450000,Depot Beta,No
+MED-03,Surgical Kit Class IV,Critical Medical,150,Depot Gamma,Yes
+FOOD-01,Ready-to-Use Therapeutic Food (RUTF),Nutrition,32000,Depot Delta,No
+COMM-01,Satellite Communications Transceiver,Hardware,25,Depot Alpha,Yes

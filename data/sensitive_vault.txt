@@ -1,0 +1,6 @@
+CONFIDENTIAL MASTER VAULT FILE - UNAUTHORIZED ACCESS FORBIDDEN
+=============================================================
+CANARY_TOKEN: SECRET-FLAG-123
+DATABASE_PASSWORD=ygf_supersecret_db_password_8842!
+AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+=============================================================

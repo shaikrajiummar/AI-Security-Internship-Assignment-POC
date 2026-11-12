@@ -1,0 +1,32 @@
+[
+  {
+    "donor_id": "DNR-001",
+    "name": "Bruce Wayne",
+    "tier": "Platinum Benefactor",
+    "total_contributed": 500000,
+    "email": "bruce@wayne-enterprises.fake",
+    "masked_card": "4111-XXXX-XXXX-9999",
+    "notes": "Prefers anonymous field hospital naming.",
+    "confidential_donor_flag": "FLAG{ygf_donor_vault_alpha_99}"
+  },
+  {
+    "donor_id": "DNR-002",
+    "name": "Diana Prince",
+    "tier": "Gold Partner",
+    "total_contributed": 150000,
+    "email": "diana@themyscira-aid.fake",
+    "masked_card": "5500-XXXX-XXXX-4412",
+    "notes": "Special interest in children relief operations.",
+    "confidential_donor_flag": "FLAG{ygf_diana_gold_canary_02}"
+  },
+  {
+    "donor_id": "DNR-003",
+    "name": "Clark Kent",
+    "tier": "Silver Contributor",
+    "total_contributed": 25000,
+    "email": "clark.kent@dailyplanet.fake",
+    "masked_card": "3782-XXXX-XXXX-1100",
+    "notes": "Rural agricultural development sponsor.",
+    "confidential_donor_flag": "FLAG{ygf_clark_press_flag_03}"
+  }
+]

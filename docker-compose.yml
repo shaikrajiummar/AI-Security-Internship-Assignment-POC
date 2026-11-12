@@ -1,0 +1,37 @@
+version: "3.8"
+
+services:
+  ai-security-poc:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ygf-ai-security-sandbox
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY:-}
+    volumes:
+      - ./submissions:/app/submissions
+      - ./logs:/app/logs
+    # Enforce container resource boundaries and network isolation
+    deploy:
+      resources:
+        limits:
+          cpus: "2.0"
+          memory: 2048M
+    networks:
+      - sandbox-net
+
+  # Optional Wazuh Forwarder simulator for SIEM ingestion (Extra Credit)
+  wazuh-agent:
+    image: alpine:latest
+    container_name: ygf-wazuh-collector
+    command: /bin/sh -c "tail -F /var/log/wazuh_alerts.json 2>/dev/null || sleep infinity"
+    volumes:
+      - ./logs/wazuh_alerts.json:/var/log/wazuh_alerts.json:ro
+    networks:
+      - sandbox-net
+
+networks:
+  sandbox-net:
+    driver: bridge
