@@ -130,7 +130,7 @@ def build_pdf_report():
     story.append(HRFlowable(width="100%", thickness=1.5, color=colors.HexColor("#2563EB"), spaceAfter=10))
 
     meta_table_data = [
-        [Paragraph("<b>Candidate:</b> AI Security Intern Applicant", meta_style),
+        [Paragraph("<b>Candidate:</b> Shaik Rajiummar (&lt;shaikrajiummar@gmail.com&gt;)", meta_style),
          Paragraph("<b>Target Organization:</b> Youth Global Future (YGF) NGO", meta_style)],
         [Paragraph("<b>Target Frameworks:</b> OWASP LLM Top 10 (2026) & OWASP Agentic ASI Top 10", meta_style),
          Paragraph(f"<b>Date of Evaluation:</b> {datetime.now().strftime('%B %d, %Y')}", meta_style)],
@@ -619,9 +619,9 @@ def build_pdf_report():
 
     # Sign-off block
     sign_data = [
-        [Paragraph("<b>Submitted by:</b> AI Security Internship Candidate", meta_style),
+        [Paragraph("<b>Submitted by:</b> Shaik Rajiummar (&lt;shaikrajiummar@gmail.com&gt;)", meta_style),
          Paragraph("<b>Reviewed by:</b> YGF NGO Technical Evaluation Committee", meta_style)],
-        [Paragraph("<b>Repository:</b> <code>https://github.com/ygf-security/owasp-llm-agent-poc</code>", meta_style),
+        [Paragraph("<b>Repository:</b> <code>https://github.com/shaikrajiummar/AI-Security-Internship-Assignment-POC</code>", meta_style),
          Paragraph("<b>Status:</b> Round 2 Practical Benchmark Complete (Grade: Pass / Extra Credit)", meta_style)]
     ]
     sign_table = Table(sign_data, colWidths=[250, 250])

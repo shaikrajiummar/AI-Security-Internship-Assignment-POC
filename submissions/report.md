@@ -1,7 +1,7 @@
 # Adversarial Evaluation & Defense Architecture for OWASP LLM and Agentic AI Risks (2026)
 **Round 2 Practical Assessment — AI Security Internship (3 Months)**  
 **Target Organization:** Youth Global Future (YGF) NGO  
-**Author:** AI Security Internship Candidate  
+**Submitted by:** Shaik Rajiummar (<shaikrajiummar@gmail.com>)  
 **Models Evaluated:** Anthropic Claude (Claude 3.5 Sonnet) & Google Gemini (Gemini 1.5 Flash)  
 **Execution Environment:** Isolated Sandbox Environment (Docker)  
 

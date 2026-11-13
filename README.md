@@ -1,5 +1,7 @@
 # OWASP LLM & Agentic AI Security Benchmark & Defense POC
 ### Round 2 Practical Assessment — AI Security Internship (3 Months) | YGF NGO
+**Submitted by:** Shaik Rajiummar ([shaikrajiummar@gmail.com](mailto:shaikrajiummar@gmail.com))  
+**GitHub Repository:** [https://github.com/shaikrajiummar/AI-Security-Internship-Assignment-POC](https://github.com/shaikrajiummar/AI-Security-Internship-Assignment-POC)
 
 [![Python 3.11](https://img.shields.io/badge/Python-3.11-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)

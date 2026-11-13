@@ -1,7 +1,7 @@
 # Video Demonstration Script & Storyboard (7-8 Minutes)
 **Assignment:** AI Security Internship (3 Months) — Round 2 Practical Submission  
 **Organization:** Youth Global Future (YGF) NGO  
-**Presenter:** AI Security Internship Candidate  
+**Submitted by:** Shaik Rajiummar (<shaikrajiummar@gmail.com>)  
 **Project:** OWASP Top 10 LLM & Agentic AI Security Benchmark & Defense POC  
 
 ---
@@ -24,7 +24,7 @@
 **Visual:** Show presentation slide with YGF NGO logo, project title, and candidate name. Then switch to webcam/split-screen.
 
 **Spoken Script:**
-> *"Hello evaluation committee! My name is [Your Name], and this is my Round 2 practical demonstration for the AI Security Internship at YGF NGO.*  
+> *"Hello evaluation committee! My name is Shaik Rajiummar, and this is my Round 2 practical demonstration for the AI Security Internship at YGF NGO.*  
 >  
 > *As non-profit organizations adopt generative AI to triage field operations and manage donor records, LLMs and autonomous agents introduce serious risks. Today, I am demonstrating a complete, reproducible proof of concept that evaluates the 2026 OWASP Top 10 for LLMs and the OWASP Top 10 for Agentic AI across both Anthropic Claude and Google Gemini.*  
 >  
