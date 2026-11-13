@@ -55,31 +55,45 @@ def interactive_cli():
         action = input("Select action (1-5): ").strip()
 
         if action == "1":
-            print("\nAvailable OWASP Test Cases:")
-            for i, tc in enumerate(ATTACK_TEST_CASES[:10]):
-                print(f"  {i+1}. [{tc['risk_id']}] {tc['title']} ({tc['target']})")
-            tc_idx = input(f"Select test case (1-{len(ATTACK_TEST_CASES[:10])}): ").strip()
+            print("\nFilter by Risk ID (e.g. LLM01, ASI02) or press Enter to see all 30 test cases:")
+            filter_risk = input("Enter risk filter [default: ALL]: ").strip().upper()
+            filtered_cases = [tc for tc in ATTACK_TEST_CASES if not filter_risk or filter_risk in tc["risk_id"]]
+            print(f"\nAvailable Test Cases ({len(filtered_cases)} found):")
+            for i, tc in enumerate(filtered_cases):
+                print(f"  {i+1:2d}. [{tc['risk_id']}] {tc['test_id']}: {tc['title']} (Target: {tc['target']})")
+            tc_idx = input(f"Select test case (1-{len(filtered_cases)}): ").strip()
             try:
-                selected_tc = ATTACK_TEST_CASES[int(tc_idx) - 1]
-                print(f"\n[ATTACK] Prompt: {selected_tc['prompt']}")
+                selected_tc = filtered_cases[int(tc_idx) - 1]
+                print(f"\n{'=' * 60}")
+                print(f"TEST CASE: {selected_tc['test_id']} - {selected_tc['title']}")
+                print(f"RISK: {selected_tc['risk_id']} - {selected_tc['risk_name']}")
+                print(f"PROMPT: {selected_tc['prompt']}")
+                print(f"{'=' * 60}")
+                
                 if selected_tc["target"] == "chatbot":
                     res = chatbot.chat(selected_tc["prompt"])
                     print(f"\n[RESPONSE]:\n{res['response']}")
                     if res.get("blocked"):
-                        print(f">> Status: [BLOCKED] by {res.get('blocked_by')}")
+                        print(f"\n>> RESULT: [BLOCKED] by {res.get('blocked_by')}")
                     elif CANARY_TOKEN in res.get("response", "") or DONOR_FLAG in res.get("response", ""):
-                        print(">> Status: [SUCCEEDED] Canary token leaked!")
+                        print(f"\n>> RESULT: [SUCCEEDED] Canary token leaked: {selected_tc.get('canary_expected')}")
                     else:
-                        print(">> Status: Clean / Protected")
+                        print("\n>> RESULT: [CLEAN / PARTIAL]")
                 else:
-                    res = agent.execute_task(selected_tc["prompt"])
-                    print(f"\n[AGENT ACTION]: Tool Called: {res.get('tool_called')}")
-                    print(f"[AGENT THOUGHT]: {res.get('thought')}")
+                    tc_role = selected_tc.get("user_role", "guest")
+                    case_agent = NGOFieldAgent(
+                        model_provider=provider,
+                        mitigation_active=mitigation_active,
+                        user_role=tc_role
+                    )
+                    res = case_agent.execute_task(selected_tc["prompt"])
+                    print(f"\n[AGENT THOUGHT]: {res.get('thought')}")
+                    print(f"[TOOL CALLED]: {res.get('tool_called')} (Args: {res.get('tool_args')})")
                     print(f"[OUTPUT]: {res.get('output')}")
                     if res.get("blocked_by"):
-                        print(f">> Status: [BLOCKED] by {res.get('blocked_by')}")
+                        print(f"\n>> RESULT: [BLOCKED] by {res.get('blocked_by')}")
                     else:
-                        print(">> Status: [EXECUTED] Tool invoked.")
+                        print("\n>> RESULT: [SUCCEEDED] Tool invoked / action executed.")
             except Exception as e:
                 print(f"Error running test case: {e}")
 
